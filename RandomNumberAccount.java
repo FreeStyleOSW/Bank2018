@@ -3,9 +3,9 @@ package Bank2018;
 import java.util.Random;
 
 public class RandomNumberAccount {
-    private static String numberAccount ="";
+    private String numberAccount ="";
 
-    public static String getNumberAccount(){
+    public String getNumberAccount(){
         for (int i = 0; i < 6; i++) {
             Random random = new Random();
             String nums = "";

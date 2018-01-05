@@ -7,10 +7,10 @@ public interface Bank {
     public void addClient(Client client);
     public void deleteClient(String name);
     public void addAccountToClient(Client client,String nameAccount);
-    public void deleteAccountOfClient(Client client,int idAccount);
+    public void deleteAccountOfClient(Client client,String nameAccount);
     public List<Client> listAllClients();
-    public void addMoneyToClientAccount(Client client, int idAccount, int cash);
-    public void removeMoneyFromClientAccount(Client client, int idAccount, int cash);
+    public void addMoneyToClientAccount(Client client, String nameAccount, int money);
+    public void removeMoneyFromClientAccount(Client client, String nameAccount, int money);
 
 
 

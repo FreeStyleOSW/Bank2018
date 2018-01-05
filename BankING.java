@@ -16,6 +16,7 @@ public class BankING implements Bank{
         for (Client client: listOfClients){
             if (client.getName() == name){
                 listOfClients.remove(client);
+                return;
             }
         }
     }
@@ -26,10 +27,11 @@ public class BankING implements Bank{
     }
 
     @Override
-    public void deleteAccountOfClient(Client client, int idAccount) {
+    public void deleteAccountOfClient(Client client, String nameAccount) {
         for (Account account: client.getAccounts()){
-            if (account.getIdAccount() == idAccount){
+            if (account.getNameAccount() == nameAccount){
                 client.getAccounts().remove(account);
+                return;
             }
         }
     }
@@ -40,19 +42,21 @@ public class BankING implements Bank{
     }
 
     @Override
-    public void addMoneyToClientAccount(Client client, int idAccount, int cash) {
+    public void addMoneyToClientAccount(Client client, String nameAccount, int money) {
         for (Account account: client.getAccounts()){
-            if (account.getIdAccount() == idAccount){
-                account.addMoney(cash);
+            if (account.getNameAccount() == nameAccount){
+                account.addMoney(money);
+                return;
             }
         }
     }
 
     @Override
-    public void removeMoneyFromClientAccount(Client client, int idAccount, int cash) {
+    public void removeMoneyFromClientAccount(Client client, String nameAccount, int money) {
         for (Account account: client.getAccounts()){
-            if (account.getIdAccount() == idAccount){
-                account.removeMoney(cash);
+            if (account.getNameAccount() == nameAccount){
+                account.removeMoney(money);
+                return;
             }
         }
     }

@@ -1,23 +1,18 @@
 package Bank2018;
 
+import java.util.Random;
+import java.util.RandomAccess;
+
 public class Account {
-    private int idAccount;
     private String numberAccount;
     private String nameAccount;
     private int amount;
+    private RandomNumberAccount randomNumberAccount = new RandomNumberAccount();
 
     public Account(String nameAccount) {
         this.nameAccount = nameAccount;
         this.amount = 0;
-        this.numberAccount = RandomNumberAccount.getNumberAccount();
-    }
-
-    public int getIdAccount() {
-        return idAccount;
-    }
-
-    public void setIdAccount(int idAccount) {
-        this.idAccount = idAccount;
+        this.numberAccount = randomNumberAccount.getNumberAccount();
     }
 
     public int addMoney(int howmany){
@@ -26,13 +21,13 @@ public class Account {
             return amount;
         }
         System.out.println("Cool! You add money to the account!");
-        return amount+=howmany;
+        return amount += howmany;
     }
 
     public int removeMoney(int howmany){
-        if (amount - howmany > 0){
-            System.out.println("Great! You spend money AGAIN !");
-            return amount - howmany;
+        if (this.amount - howmany > 0){
+            System.out.println("Oh Nooo! You spend money!");
+            return amount -= howmany;
         }else{
             System.out.println("There are not enough money on the account!");
             return amount;
@@ -58,9 +53,8 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "idAccount='" + idAccount + '\'' +
-                "numberAccount='" + numberAccount +'\'' +
-                ", nameAccount='" + nameAccount + '\'' +
+                "nameAccount='" + nameAccount + '\'' +
+                ", numberAccount='" + numberAccount +'\'' +
                 ", amount='" + amount + '\'' +
                 '}';
     }
