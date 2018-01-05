@@ -8,6 +8,13 @@ public class BankING implements Bank{
 
     @Override
     public void addClient(Client client) {
+        String  kolega = " nowych kolegów";
+        if (listOfClients.size() == 1) kolega = " nowego kolege";
+        System.out.println(
+                "Witaj " + client.getName() +
+                        " ---> Masz " + listOfClients.size() + kolega
+
+        );
         listOfClients.add(client);
     }
 
