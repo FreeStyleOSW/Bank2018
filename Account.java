@@ -1,14 +1,23 @@
 package Bank2018;
 
 public class Account {
-
+    private int idAccount;
     private String numberAccount;
     private String nameAccount;
     private int amount;
+
     public Account(String nameAccount) {
         this.nameAccount = nameAccount;
         this.amount = 0;
         this.numberAccount = RandomNumberAccount.getNumberAccount();
+    }
+
+    public int getIdAccount() {
+        return idAccount;
+    }
+
+    public void setIdAccount(int idAccount) {
+        this.idAccount = idAccount;
     }
 
     public int addMoney(int howmany){
@@ -34,10 +43,6 @@ public class Account {
         return numberAccount;
     }
 
-    public void setNumberAccount(String numberAccount) {
-        this.numberAccount = numberAccount;
-    }
-
     public String getNameAccount() {
         return nameAccount;
     }
@@ -50,13 +55,10 @@ public class Account {
         return amount;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
     @Override
     public String toString() {
         return "Account{" +
+                "idAccount='" + idAccount + '\'' +
                 "numberAccount='" + numberAccount +'\'' +
                 ", nameAccount='" + nameAccount + '\'' +
                 ", amount='" + amount + '\'' +
