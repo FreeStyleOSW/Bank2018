@@ -8,11 +8,8 @@ public class BankING implements Bank{
 
     @Override
     public void addClient(Client client) {
-        System.out.println(
-                "Witaj " + client.getName() +
-                        " Dzięki że zaufałeś nam!\n"
-        );
-        sendNotificationToClient(client);
+        sendNotiToNewClient(client);
+        sendNotiToClients(client);
         listOfClients.add(client);
     }
 
@@ -67,20 +64,30 @@ public class BankING implements Bank{
     }
 
     @Override
-    public void sendNotificationToClient(Client client) {
-        String email = client.getEmail();
+    public void sendNotiToNewClient(Client client) {
         String  kolega = " nowych kolegów";
         if (listOfClients.size() == 1) kolega = " nowego kolege";
-        for (Client c : listOfClients){
+        System.out.println(
+                "Witaj " + client.getName() + " !" +
+                        " Dzięki, że zaufałeś nam!");
+        if (listOfClients.size() == 0) {
+            System.out.println();
+            return;
+        }
+        System.out.println(
+                        "Masz " + listOfClients.size() + kolega +"\n"
+        );
+    }
+
+    @Override
+    public void sendNotiToClients(Client newClient) {
+        for (Client client : listOfClients){
+            if (client == newClient) continue;
             System.out.println(
-                    "Wiadomość dla " + c.getName() + ":\n" +
-                    "Hej " + c.getName() +
-                    ", masz " + listOfClients.size() + kolega + "\n"
+                    "Wiadomość dla " + client.getName() + ":\n" +
+                    "Hej " + client.getName() +
+                    ", masz " + "1 nowego kolege" + ", w sumie masz ich już aż " + listOfClients.size() + "\n"
             );
         }
-        // Method to send email ...
-        // ........................
-        // ........................
-        // ........................
     }
 }

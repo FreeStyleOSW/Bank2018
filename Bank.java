@@ -11,7 +11,8 @@ public interface Bank {
     public List<Client> listAllClients();
     public void addMoneyToClientAccount(Client client, String nameAccount, int money);
     public void removeMoneyFromClientAccount(Client client, String nameAccount, int money);
-    public void sendNotificationToClient(Client client);
+    public void sendNotiToNewClient(Client client);
+    public void sendNotiToClients(Client newClient);
 
 
 
