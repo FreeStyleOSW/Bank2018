@@ -15,6 +15,7 @@ public class Test {
         bankING.addMoneyToClientAccount(client2,"Drugie",200);
         bankING.addClient(client1);
         bankING.addClient(client2);
+        bankING.addClient(new Client("Gość","Biedak","lolek@kotek.pl",515129333));
         System.out.println(bankING.listAllClients());
         bankING.deleteAccountOfClient(client1,"Drugie");
         bankING.removeMoneyFromClientAccount(client1,"Pierwsze",30);
